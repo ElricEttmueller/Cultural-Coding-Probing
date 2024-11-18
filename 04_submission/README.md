@@ -1,60 +1,58 @@
-# Step 4: Submit Your Journey 🚀
+# Submitting Your Responses 📤
 
-## Final Checklist ✅
+Thank you for participating in our cultural probe study! This guide will help you submit your responses.
 
-### 1. Review Your Work
-- [ ] Code changes committed
-- [ ] Diary entries completed
-- [ ] Reflections documented
-- [ ] Media files included
+## Before Submission ✅
 
-### 2. Prepare Submission
-```bash
-# Create your submission
-git add .
-git commit -m "My developer experience insights"
-git push origin your-name/probe
-```
+Please ensure:
+1. You've completed your chosen tasks
+2. All your reflections are saved in `.probe_responses/`
+3. You're ready to share your responses
 
-### 3. Verify Content 🔍
-Make sure you've included:
-- 📝 Your chosen task solution
-- 📖 Daily diary entries
-- 💭 Reflection documents
-- 🎨 Any diagrams or sketches
-- 🎙️ Voice notes (if any)
-- 📸 Screenshots (if any)
+## Submission Process 🚀
 
-## Privacy Check 🔒
+1. **Generate Submission Package**
+   ```bash
+   python submit_probes.py
+   ```
+   This will:
+   - Create a PDF report of all your responses
+   - Package raw responses in a ZIP file
+   - Generate submission metadata
 
-### Included ✅
-- Code changes
-- Development process
-- Tool usage
-- General insights
+2. **Review & Submit**
+   - Check the generated PDF in the `submissions/` directory
+   - Email the PDF to: elric.ettmueller@hm.edu
+   - Keep the ZIP file for your records
 
-### Not Included ❌
-- Personal data
-- Sensitive information
-- Private credentials
-- Unrelated files
+## What Gets Submitted 📋
 
-## Follow-up 📬
+The submission includes:
+- A beautifully formatted PDF with:
+  - All your probe responses
+  - Submission metadata
+  - Timestamps and IDs
+- A ZIP archive containing:
+  - Raw response files
+  - Media files (if any)
+  - Configuration data
 
-### What's Next
-1. We'll review your submission
-2. You might get follow-up questions
-3. Results shared with participants
-4. Opportunity for feedback
+## Privacy Notice 🔒
 
-### Stay Connected
-- Join our community
-- Share additional insights
-- See others' experiences
-- Discuss findings
+- All submissions are anonymized
+- Personal identifiers are removed
+- You can review everything before sending
+- Raw data stays on your machine
 
-## Thank You! 🎉
-Your insights help us understand developer experiences better!
+## Need Help? 💁‍♀️
 
----
-Questions? Check `FAQ.md` or reach out to us!
+If you encounter any issues:
+1. Check the error message
+2. Verify all responses are in `.probe_responses/`
+3. Make sure you have required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Contact us for support
+
+Thank you for your valuable contribution to our research! 🙏

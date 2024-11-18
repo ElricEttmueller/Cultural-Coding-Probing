@@ -1,2 +1,15 @@
+# Core Dependencies
 pyyaml>=6.0.1
 pathlib>=1.0.1
+markdown>=3.4.4
+reportlab>=4.1.0
+pyqrcode>=1.2.1
+pypng>=0.20220715.0  # Required for QR code PNG generation
+
+# Development Tools
+black>=23.7.0  # Code formatting
+pylint>=2.17.5  # Code analysis
+pytest>=7.4.0  # Testing
+
+# Optional Tools
+rich>=13.5.2  # Enhanced terminal output

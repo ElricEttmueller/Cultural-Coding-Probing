@@ -1,88 +1,233 @@
 """
-Example scenario: Feature Development
-This example demonstrates how probes can gather insights during new feature development.
+✨ Feature Development Challenge: Smart Task Scheduler
+
+Background:
+-----------
+We're building a smart task scheduling system that helps users organize their
+work more efficiently. Your task is to implement the core scheduling algorithm
+that considers task priority, dependencies, and time constraints.
+
+Your Task:
+----------
+Implement the TaskScheduler class with these features:
+- Task priority handling
+- Dependency resolution
+- Time slot optimization
+- Conflict resolution
+
+Requirements:
+------------
+1. Tasks can have priorities (1-5)
+2. Tasks can depend on other tasks
+3. Tasks need specific time slots
+4. Handle scheduling conflicts gracefully
+
+Remember: Document your design decisions as you work! 💡
 """
 
-from typing import List, Dict, Optional
-import json
+from dataclasses import dataclass
+from datetime import datetime, timedelta
+from typing import Dict, List, Optional, Set
+from enum import Enum
+import heapq
 
-class UserPreferences:
-    # @probe:environment How do you organize your workspace when working
-    # on a new feature? Do you have specific window arrangements?
+class Priority(Enum):
+    LOW = 1
+    MEDIUM = 2
+    HIGH = 3
+    URGENT = 4
+    CRITICAL = 5
+
+@dataclass
+class TimeSlot:
+    start: datetime
+    duration: timedelta
+    
+    @property
+    def end(self) -> datetime:
+        return self.start + self.duration
+
+@dataclass
+class Task:
+    id: str
+    name: str
+    priority: Priority
+    estimated_duration: timedelta
+    dependencies: Set[str]
+    deadline: Optional[datetime] = None
+
+class TaskScheduler:
     def __init__(self):
-        self.preferences: Dict = {}
+        # @probe:design 🎨 How do you approach system design?
+        # - Do you sketch it first?
+        # - Start with interfaces?
+        # - Build incrementally?
+        self.tasks: Dict[str, Task] = {}
+        self.schedule: Dict[str, TimeSlot] = {}
+        self.available_slots: List[TimeSlot] = []
+    
+    def add_task(self, task: Task) -> bool:
+        """Add a new task to the scheduler."""
+        # @probe:validation ✅ What validation do you add first?
+        # - Basic type checking?
+        # - Business logic rules?
+        # - Edge cases?
         
-    def save(self, filepath: str) -> None:
-        # @probe:sustainability Do you consider file I/O performance when
-        # deciding how often to save user preferences?
-        with open(filepath, 'w') as f:
-            json.dump(self.preferences, f)
-    
-    def load(self, filepath: str) -> None:
-        # @probe:workflow When adding error handling, do you prefer to
-        # handle all edge cases upfront or add them iteratively?
-        try:
-            with open(filepath, 'r') as f:
-                self.preferences = json.load(f)
-        except FileNotFoundError:
-            self.preferences = {}
-
-class ThemeManager:
-    # @probe:tools What IDE features do you use most when implementing
-    # new classes? (autocomplete, documentation, etc.)
-    def __init__(self):
-        self.current_theme: str = "default"
-        self.available_themes: List[str] = ["default", "dark", "light"]
-    
-    def set_theme(self, theme: str) -> bool:
-        # @probe:workflow How do you validate your assumptions when
-        # implementing new functionality?
-        if theme not in self.available_themes:
-            return False
-        self.current_theme = theme
+        # Validate task
+        if task.id in self.tasks:
+            raise ValueError(f"Task {task.id} already exists")
+            
+        # Validate dependencies
+        for dep_id in task.dependencies:
+            if dep_id not in self.tasks:
+                raise ValueError(f"Dependency {dep_id} not found")
+        
+        self.tasks[task.id] = task
         return True
     
-    def get_theme_colors(self) -> Dict[str, str]:
-        # @probe:environment Does your editor's color scheme affect how
-        # you write code that deals with colors and themes?
-        themes = {
-            "default": {"background": "#FFFFFF", "text": "#000000"},
-            "dark": {"background": "#1E1E1E", "text": "#FFFFFF"},
-            "light": {"background": "#F5F5F5", "text": "#333333"}
-        }
-        return themes[self.current_theme]
+    def schedule_task(self, task_id: str) -> Optional[TimeSlot]:
+        """Schedule a task in the best available time slot."""
+        # @probe:algorithm 🧮 How do you approach algorithm design?
+        # - Start simple and refine?
+        # - Consider all edge cases first?
+        # - Balance efficiency vs. readability?
+        
+        task = self.tasks.get(task_id)
+        if not task:
+            return None
+            
+        # Check dependencies
+        for dep_id in task.dependencies:
+            if dep_id not in self.schedule:
+                return None  # Dependencies not scheduled yet
+        
+        # Find best slot
+        return self._find_best_slot(task)
+    
+    def _find_best_slot(self, task: Task) -> Optional[TimeSlot]:
+        """Find the best time slot for a task."""
+        # @probe:optimization 🚀 How do you handle optimization?
+        # - What metrics matter most?
+        # - How do you measure improvement?
+        # - When do you stop optimizing?
+        
+        available_slots = self._get_available_slots()
+        if not available_slots:
+            return None
+            
+        # Score each slot
+        scored_slots = []
+        for slot in available_slots:
+            score = self._score_slot(slot, task)
+            if score > 0:
+                heapq.heappush(scored_slots, (-score, slot))
+        
+        return scored_slots[0][1] if scored_slots else None
+    
+    def _score_slot(self, slot: TimeSlot, task: Task) -> float:
+        """Score a time slot for a specific task."""
+        # @probe:metrics 📊 What factors do you consider?
+        # - How do you weigh different criteria?
+        # - What trade-offs do you make?
+        score = 0.0
+        
+        # Priority bonus
+        score += task.priority.value * 10
+        
+        # Deadline proximity
+        if task.deadline:
+            time_to_deadline = task.deadline - slot.end
+            if time_to_deadline.total_seconds() < 0:
+                return 0  # Past deadline
+            score += min(100, time_to_deadline.total_seconds() / 3600)
+        
+        # Dependency optimization
+        dep_score = self._calculate_dependency_score(task, slot)
+        score += dep_score
+        
+        return score
+    
+    def _calculate_dependency_score(self, task: Task, slot: TimeSlot) -> float:
+        """Calculate score based on dependency satisfaction."""
+        # @probe:complexity 🤔 How do you manage complexity?
+        # - When do you break down functions?
+        # - How do you name things?
+        # - What patterns do you use?
+        score = 0.0
+        
+        for dep_id in task.dependencies:
+            dep_slot = self.schedule.get(dep_id)
+            if dep_slot:
+                # Prefer slots closer to dependencies
+                time_gap = slot.start - dep_slot.end
+                if time_gap.total_seconds() < 0:
+                    return 0  # Can't schedule before dependency
+                score += 50 / (1 + time_gap.total_seconds() / 3600)
+        
+        return score
 
-class SettingsManager:
-    def __init__(self):
-        # @probe:tools Which tools do you use to manage configuration and settings?
-        self.preferences = UserPreferences()
-        self.theme_manager = ThemeManager()
-    
-    def apply_user_settings(self, settings: Dict) -> None:
-        # @probe:workflow How do you approach implementing features that
-        # affect multiple components?
-        if "theme" in settings:
-            self.theme_manager.set_theme(settings["theme"])
-        self.preferences.preferences.update(settings)
-    
-    def get_current_settings(self) -> Dict:
-        return {
-            "theme": self.theme_manager.current_theme,
-            **self.preferences.preferences
-        }
+    def _get_available_slots(self) -> List[TimeSlot]:
+        """Get list of available time slots."""
+        # @probe:efficiency 🎯 How do you handle performance?
+        # - What data structures do you choose?
+        # - How do you optimize lookups?
+        # - When do you cache?
+        return self.available_slots
 
 # Example usage
+def main():
+    # @probe:testing 🧪 How do you test complex features?
+    # - What scenarios do you test first?
+    # - How do you verify correctness?
+    # - What edge cases matter most?
+    
+    scheduler = TaskScheduler()
+    
+    # Available time slots (9 AM to 5 PM)
+    start_time = datetime(2024, 1, 1, 9, 0)
+    for hour in range(8):
+        slot = TimeSlot(
+            start=start_time + timedelta(hours=hour),
+            duration=timedelta(hours=1)
+        )
+        scheduler.available_slots.append(slot)
+    
+    # Create some tasks
+    tasks = [
+        Task(
+            id="task1",
+            name="Setup Database",
+            priority=Priority.HIGH,
+            estimated_duration=timedelta(hours=2),
+            dependencies=set(),
+            deadline=datetime(2024, 1, 1, 12, 0)
+        ),
+        Task(
+            id="task2",
+            name="Configure API",
+            priority=Priority.MEDIUM,
+            estimated_duration=timedelta(hours=1),
+            dependencies={"task1"},
+            deadline=datetime(2024, 1, 1, 15, 0)
+        ),
+        Task(
+            id="task3",
+            name="Deploy Service",
+            priority=Priority.CRITICAL,
+            estimated_duration=timedelta(hours=1),
+            dependencies={"task1", "task2"},
+            deadline=datetime(2024, 1, 1, 17, 0)
+        )
+    ]
+    
+    # Add and schedule tasks
+    for task in tasks:
+        scheduler.add_task(task)
+        slot = scheduler.schedule_task(task.id)
+        if slot:
+            print(f"Scheduled {task.name} at {slot.start}")
+        else:
+            print(f"Could not schedule {task.name}")
+
 if __name__ == "__main__":
-    # @probe:environment How do you test new features in your development environment?
-    settings = SettingsManager()
-    
-    # Apply some user settings
-    user_settings = {
-        "theme": "dark",
-        "font_size": 14,
-        "show_line_numbers": True
-    }
-    
-    settings.apply_user_settings(user_settings)
-    current_settings = settings.get_current_settings()
-    print("Current Settings:", json.dumps(current_settings, indent=2))
+    main()

@@ -1,3 +1,5 @@
+"""Setup script for Cultural Probes package."""
+
 from setuptools import setup, find_packages
 
 with open("README.md", "r", encoding="utf-8") as fh:
@@ -7,26 +9,36 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = [line.strip() for line in fh if line.strip() and not line.startswith("#")]
 
 setup(
-    name="codebase-cultural-probe",
+    name="cultural-probes",
     version="0.1.0",
-    author="Codeium",
-    author_email="support@codeium.com",
-    description="A non-intrusive cultural probe for understanding developer environments",
+    author="Elric Ettmueller",
+    author_email="elric.ettmueller@hm.edu",
+    description="A framework for collecting and managing qualitative research data through cultural probes",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/codeium/codebase-cultural-probe",
+    url="https://github.com/yourusername/cultural-probes",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Intended Audience :: Science/Research",
         "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Topic :: Scientific/Engineering :: Information Analysis",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     install_requires=requirements,
+    entry_points={
+        "console_scripts": [
+            "probe-submit=cultural_probes.submission.cli:main",
+        ],
+    },
     include_package_data=True,
+    package_data={
+        "cultural_probes": ["templates/*", "config/*"],
+    },
 )

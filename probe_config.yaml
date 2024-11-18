@@ -55,3 +55,55 @@ probe_settings:
     collect_environment: false   # Don't collect environment data automatically
     collect_metrics: false       # Don't collect usage metrics
     anonymize: true             # Anonymize all responses
+
+submission_settings:
+  receiver_email: "elric.ettmueller@hm.edu"
+  submission_format:
+    include_system_info: true
+    include_timestamps: true
+    generate_qr: true
+  pdf_settings:
+    template: "default"
+    include_cover_page: true
+    page_numbers: true
+    watermark: "Confidential Research Data"
+  security:
+    encrypt_zip: true
+    generate_checksum: true
+    file_protection:
+      enabled: true
+      protected_paths:
+        - "02_your_task/examples"
+        - "03_reflection/templates"
+        - ".probe_responses"
+      exclude_from_protection:
+        - ".gitkeep"
+        - "README.md"
+        - "TEMPLATE_*.md"
+  metadata:
+    institution: "Munich University of Applied Sciences"
+    research_project: "Cultural Probes Study"
+    contact_info: "elric.ettmueller@hm.edu"
+    data_handling_notice: >
+      All submitted data will be handled confidentially and used solely for research purposes.
+      By submitting this data, you agree to our research data handling policies.
+
+email_template: |
+  Subject: Cultural Probe Submission - {submission_id}
+  
+  Dear Research Team,
+  
+  Please find attached my Cultural Probe submission (ID: {submission_id}).
+  
+  Submission Details:
+  - Timestamp: {timestamp}
+  - Number of Responses: {num_responses}
+  - Checksum: {checksum}
+  
+  Best regards,
+  {participant_name}
+
+directories:
+  responses: ".probe_responses"
+  submissions: "04_submission/submissions"
+  templates: "04_submission/templates"

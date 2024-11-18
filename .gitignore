@@ -32,14 +32,28 @@ env/
 *.swp
 *.swo
 
-# OS
+# macOS
 .DS_Store
-.DS_Store?
+.AppleDouble
+.LSOverride
+Icon
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 
-# Project specific
-.probe_responses/
+# Project-specific
+.probe_responses/*
+!.probe_responses/.gitkeep
+04_submission/submissions/*
+!04_submission/submissions/.gitkeep
+04_submission/templates/*
+!04_submission/templates/.gitkeep
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Local development
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

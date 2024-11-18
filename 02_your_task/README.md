@@ -1,51 +1,57 @@
-# Step 2: Your Coding Task 🎯
+# Your Coding Journey 🚀
 
-## Choose Your Path
-Pick the task that interests you most:
+Welcome to the heart of our cultural probe study! This directory contains carefully designed coding activities that serve as prompts for reflection and exploration.
 
-### 🐛 Bug Fix (30-45 min)
-```python
-# A tricky bug in a data processing pipeline
-examples/bug_fix_scenario.py
-```
-Perfect if you enjoy:
-- Problem-solving
-- Debugging
-- System thinking
+## Available Tasks 📝
 
-### ✨ Feature Development (45-60 min)
-```python
-# Add a new feature to an existing system
-examples/feature_development.py
-```
-Great for:
-- Creative coding
-- System design
-- User experience
+Choose one that interests you:
 
-### 🔄 Code Review (30-45 min)
-```python
-# Improve existing code quality
-examples/code_review_refactor.py
-```
-Ideal for:
-- Code organization
-- Performance optimization
-- Best practices
+### 1. Code Review & Refactor
+- 📂 `examples/code_review_refactor.py`
+- Review existing code and improve its structure
+- Focus on readability and maintainability
+- Share your thought process as you work
 
-## While You Work 📝
+### 2. Feature Implementation
+- 📂 `examples/feature_implementation.py`
+- Add new functionality to existing code
+- Balance technical debt with feature delivery
+- Document your design decisions
 
-### Document Your Journey
-- 💭 What's your thought process?
-- 🤔 How do you approach problems?
-- 🛠️ Which tools do you use?
-- 📊 How do you organize your work?
+### 3. Bug Investigation
+- 📂 `examples/bug_investigation.py`
+- Track down and fix subtle issues
+- Practice debugging strategies
+- Share your problem-solving approach
 
-### Capture Your Experience
-- 📸 Take screenshots
-- 🎨 Draw diagrams
-- 🎙️ Record voice notes
-- ✍️ Write notes
+## How to Participate 🤝
 
-## Next Step ⏭️
-When you're done, move to `03_reflection/` to share your insights!
+1. **Choose Your Task**
+   - Pick any task that interests you
+   - No pressure to complete everything
+   - Quality of reflection > quantity of code
+
+2. **Work Naturally**
+   - Use your preferred tools and methods
+   - Take breaks when needed
+   - Think aloud as you work
+
+3. **Reflect As You Go**
+   - Notice your thought process
+   - Document interesting moments
+   - Share what works (or doesn't)
+
+## Tips for Success 💡
+
+- There are no "right" answers
+- Focus on the journey, not the destination
+- Share your authentic experience
+- Take time to reflect on your process
+
+## Need Help? 🆘
+
+- Check `FAQ.md` in the root directory
+- Review task-specific READMEs
+- Reach out through Discord or email
+
+Ready to begin? Choose your task and dive in! 🏊‍♂️
