@@ -1,76 +1,75 @@
-# Frequently Asked Questions (FAQ)
+# Frequently Asked Questions 🤔
 
-## General Questions
+## Quick Answers
 
-### What is a Cultural Probe?
-A cultural probe is a research tool designed to understand how people work and interact with their environment. In this case, we're using it to explore how developers code, what tools they use, and how they think about their development process.
+### 🎯 About the Study
 
-### How long will this take?
-The basic participation takes about 1-2 hours:
-- Coding task: 30-60 minutes
-- Creative reflection: 20-30 minutes
-- Developer diary: 10-15 minutes
+**Q: What exactly am I doing here?**
+> You're helping us understand how developers really work! Just code normally and share your thoughts along the way.
 
-### Do I need to be an expert developer?
-No! We welcome developers of all skill levels. Your unique perspective is valuable regardless of your experience level.
+**Q: How long will this take?**
+> 1-2 hours total, but you can split it up however you like. Take breaks!
 
-## Participation Questions
+**Q: Do I need to be an expert?**
+> Not at all! We want developers of all levels. Your experience is valuable no matter what.
 
-### Can I participate anonymously?
-Yes! You can use a pseudonym for your contributions. Just make sure to mention this in your pull request.
+### 🛠️ Technical Stuff
 
-### What if I can't complete all parts?
-That's okay! While we encourage completing all sections, partial contributions are also valuable. Do what you can and note why you couldn't complete certain parts.
+**Q: Help! The code isn't working!**
+```bash
+# Try these first:
+git pull origin main  # Get latest updates
+pip install -r requirements.txt  # Fresh install
+```
+> Still stuck? Drop us a message!
 
-### Can I add my own probes or questions?
-Absolutely! Feel free to add your own reflection questions or probe points. Just document them in your diary.
+**Q: Can I use my own IDE/tools?**
+> Absolutely! Use whatever makes you comfortable.
 
-### Should I record my screen/environment?
-This is optional. If you're comfortable sharing screenshots or photos of your setup, they can be valuable additions to your reflection.
+**Q: What if I get stuck on the coding task?**
+> That's totally fine! The task is just a prompt - we care more about your experience than the solution.
 
-## Technical Questions
+### 📝 Sharing Your Experience
 
-### What programming languages do I need to know?
-The example scenarios are in Python, but you can modify them to use your preferred language. Just document the changes in your diary.
+**Q: What should I write about?**
+> Anything that comes to mind:
+> - 💭 Your thought process
+> - 🛠️ How you use your tools
+> - 😤 What frustrates you
+> - 🎉 What works well
 
-### Do I need to install any special tools?
-Just Python and Git. Any additional tools you use should be documented in your diary as part of the research.
+**Q: Do I have to use all the input methods?**
+> Nope! Use whatever feels natural:
+> - ✍️ Writing
+> - 🎙️ Voice notes
+> - 🎨 Sketches
+> - 📸 Screenshots
+> - Whatever works for you!
 
-### What if I find bugs in the probe code?
-Please report them by opening an issue! Finding and fixing bugs can be an interesting part of your probe experience.
+**Q: What if I don't have much to say?**
+> Short answers are fine! Quality over quantity.
 
-## Content Questions
+### 🔒 Privacy & Data
 
-### How detailed should my responses be?
-Be as detailed as feels natural. Quality over quantity - we're interested in authentic insights rather than long responses.
+**Q: Who sees my responses?**
+> Only the research team. We keep everything anonymous.
 
-### Can I include drawings/diagrams?
-Yes, please do! Visual representations can be very helpful. You can include:
-- Sketches of your workspace
-- Diagrams of your workflow
-- Mind maps of your thinking process
-- Screenshots of your setup
+**Q: What happens to my code?**
+> It stays in your branch. We look at your process, not judge your code.
 
-### What if I disagree with the probe questions?
-That's interesting data too! Document your disagreement and explain your perspective.
+**Q: Can I skip questions?**
+> Absolutely! Share only what you're comfortable with.
 
-## Privacy Questions
+### 🤝 Getting Help
 
-### How will my data be used?
-Your contributions will be used for research purposes only. We'll analyze patterns and insights across all participants to understand developer workflows better.
+**Q: I have a question not covered here!**
+> We're here to help:
+> - 💬 Discord: [link]
+> - 📧 Email: [address]
+> - 🐛 GitHub Issues
 
-### Can I remove my data later?
-Yes. If you want your data removed, open an issue or contact us directly. We'll remove your contributions from the repository.
+**Q: Can I suggest improvements?**
+> Yes please! Open an issue or PR.
 
-### What parts of my contribution will be public?
-Only what you submit in your pull request will be public. You control what you share.
-
-## Still Have Questions?
-
-If your question isn't answered here:
-1. Check the documentation
-2. Open an issue labeled "Question"
-3. Join our community chat
-4. Contact the research team directly
-
-Remember: There are no "wrong" questions or answers in this research. We're interested in your authentic experience! 🚀
+## Still Have Questions? 💁‍♀️
+Don't hesitate to reach out. We're here to help!

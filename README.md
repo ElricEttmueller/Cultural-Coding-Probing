@@ -1,22 +1,63 @@
-# Codebase Cultural Probe
+# Welcome to the Developer Experience Study! 👋
 
-A creative exploration of developers' working environments, habits, and practices through a combination of coding tasks, reflective writing, and artistic expression.
+> **Time Commitment**: About 1-2 hours, split into small sessions
+> **Technical Level**: Any experience level welcome!
+> **Format**: Code a bit, reflect a bit, share your thoughts
 
-## Overview
+## What's This All About? 🤔
 
-This cultural probe combines three unique approaches to understand how developers work:
-1. **Code Interactions**: Embedded probes in real coding tasks
-2. **Creative Reflection**: Metaphorical and artistic exploration of development
-3. **Developer Diary**: Daily documentation of the coding journey
+We're exploring how developers (like you!) work, think, and create. No judging, no right answers - just genuine curiosity about your unique experience.
 
-## How to Participate
+## Quick Start Guide 🚀
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions on how to:
-1. Fork and clone the repository
-2. Complete coding tasks with embedded probes
-3. Create your reflection piece
-4. Document your journey in the developer diary
-5. Submit your story via pull request
+### 1️⃣ Choose Your Path
+Pick what interests you:
+- 🐛 **Fix a Bug** (30-45 min)
+- ✨ **Build a Feature** (45-60 min)
+- 🔄 **Improve Some Code** (30-45 min)
+
+### 2️⃣ Share Your Experience
+While you work:
+- 📝 Jot down thoughts
+- 🎨 Sketch ideas
+- 🎙️ Record voice notes
+- 📸 Take screenshots
+
+### 3️⃣ Reflect and Submit
+- ✍️ Fill in your diary
+- 💭 Share your insights
+- 🚀 Push your changes
+
+## Getting Started in 3 Minutes ⚡
+
+```bash
+# 1. Clone this repo
+git clone [repository-url]
+
+# 2. Create your space
+git checkout -b your-name/probe
+
+# 3. Open the guide
+open GETTING_STARTED.md
+```
+
+## Need Help? 💁‍♀️
+
+- 📧 Email: [contact email]
+- 💬 Discord: [discord link]
+- 🤔 Questions? Check FAQ.md
+
+## Your Privacy 🔒
+
+- ✅ Share what you're comfortable with
+- ✅ Use any input method you prefer
+- ✅ Take breaks whenever needed
+- ❌ No personal data collected
+- ❌ No performance judgments
+
+## Ready? Let's Go! 🎉
+
+Click `GETTING_STARTED.md` to begin your journey!
 
 ## Project Structure
 
@@ -41,13 +82,6 @@ We aim to understand:
 - Patterns in workflow and productivity
 - Creative aspects of coding
 - Personal experiences in software development
-
-## Privacy & Data Usage
-
-- All probe responses are stored locally
-- You control what information to share
-- No automatic data collection without consent
-- All insights are anonymized
 
 ## Contributing
 

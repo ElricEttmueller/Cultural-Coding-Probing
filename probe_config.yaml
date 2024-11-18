@@ -36,6 +36,20 @@ probe_settings:
   storage:
     location: ".probe_responses"  # Where to store probe responses
     format: "markdown"           # Response storage format
+    allowed_formats:            # Support multiple response types
+      - "text"
+      - "image"
+      - "audio"
+      - "diagram"
+      - "sketch"
+    media_directory: ".probe_responses/media"  # Store media files
+  
+  accessibility:
+    support_voice_input: true    # Enable voice input for responses
+    support_dark_mode: true      # Support dark mode for templates
+    font_size_adjustable: true   # Allow font size customization
+    emoji_support: true          # Use emojis for visual cues
+    screen_reader_friendly: true # Ensure screen reader compatibility
   
   privacy:
     collect_environment: false   # Don't collect environment data automatically
