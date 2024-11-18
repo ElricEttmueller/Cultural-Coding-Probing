@@ -33,10 +33,11 @@ This framework helps:
 
 ## Getting Started
 
-1. **Setup**
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. Clone this repository
+2. Read the [GIT_WORKFLOW.md](GIT_WORKFLOW.md) for important instructions
+3. Review the examples in `02_your_task/examples/`
+4. Start with tasks that match your skill level
+5. Use the templates in `03_reflection/` for your responses
 
 2. **Directory Structure**
    - `02_your_task/`: Task descriptions and examples

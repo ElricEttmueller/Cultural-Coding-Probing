@@ -1,0 +1,21 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Python files
+*.py text diff=python
+
+# Documentation
+*.md text diff=markdown
+*.txt text
+*.yaml text
+*.yml text
+
+# Exclude from language statistics
+examples/* linguist-documentation
+docs/* linguist-documentation
+
+# Binary files
+*.png binary
+*.jpg binary
+*.pdf binary
+*.pyc binary

@@ -5,11 +5,16 @@ markdown>=3.4.4
 reportlab>=4.1.0
 pyqrcode>=1.2.1
 pypng>=0.20220715.0  # Required for QR code PNG generation
+rich>=13.5.2  # Enhanced terminal output
 
-# Development Tools
+# Development Dependencies
 black>=23.7.0  # Code formatting
 pylint>=2.17.5  # Code analysis
 pytest>=7.4.0  # Testing
+pytest-cov>=4.1.0  # Test coverage
+mypy>=1.5.1  # Type checking
 
-# Optional Tools
-rich>=13.5.2  # Enhanced terminal output
+# Performance Optimizations
+cachetools>=5.3.1  # For caching
+concurrent-log-handler>=0.9.24  # Thread-safe logging
+typing-extensions>=4.7.1  # Enhanced type hints
