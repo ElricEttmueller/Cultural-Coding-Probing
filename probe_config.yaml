@@ -1,0 +1,43 @@
+probe_types:
+  environment:
+    description: "Reflections on the development environment and setup"
+    templates:
+      - "How does your current development environment affect your productivity?"
+      - "What aspects of your workspace help you focus the most?"
+      - "Which environmental factors (noise, lighting, etc.) impact your coding?"
+  
+  tools:
+    description: "Insights about development tools and their usage"
+    templates:
+      - "Which IDE features do you use most frequently?"
+      - "Are there any missing tools that would improve your workflow?"
+      - "How do your current tools support or hinder your coding process?"
+  
+  workflow:
+    description: "Understanding development processes and patterns"
+    templates:
+      - "How do you typically break down complex coding tasks?"
+      - "What's your preferred way to tackle debugging?"
+      - "How do you balance feature development with code maintenance?"
+  
+  sustainability:
+    description: "Exploring sustainable coding practices"
+    templates:
+      - "How do you consider resource usage when choosing libraries?"
+      - "What practices do you follow to optimize code efficiency?"
+      - "How do you balance performance with energy consumption?"
+
+probe_settings:
+  frequency:
+    comments: "daily"      # How often to inject new probe comments
+    tasks: "weekly"        # Frequency of task-based probes
+    commits: "per-commit"  # Prompt frequency during commits
+  
+  storage:
+    location: ".probe_responses"  # Where to store probe responses
+    format: "markdown"           # Response storage format
+  
+  privacy:
+    collect_environment: false   # Don't collect environment data automatically
+    collect_metrics: false       # Don't collect usage metrics
+    anonymize: true             # Anonymize all responses

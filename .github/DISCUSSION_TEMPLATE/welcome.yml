@@ -1,0 +1,50 @@
+title: "Welcome to the Cultural Probe Community!"
+labels: ["welcome"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Welcome to Our Research Community! 🎉
+        
+        We're excited to have you join our exploration of developer workflows and environments.
+        
+  - type: dropdown
+    id: participant-type
+    attributes:
+      label: How are you participating?
+      options:
+        - Contributing a probe response
+        - Researching developer workflows
+        - Just curious and learning
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: introduction
+    attributes:
+      label: Introduce Yourself
+      description: Tell us a bit about yourself and your interest in this project
+      placeholder: "Hi! I'm a developer interested in..."
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: interests
+    attributes:
+      label: What aspects interest you most?
+      options:
+        - label: Developer workflows
+        - label: Tool usage patterns
+        - label: Workspace organization
+        - label: Coding practices
+        - label: Creative aspects of coding
+        
+  - type: textarea
+    id: questions
+    attributes:
+      label: Any Questions?
+      description: What would you like to know about the project?
+      placeholder: "I'm curious about..."
+    validations:
+      required: false

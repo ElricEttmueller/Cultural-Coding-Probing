@@ -1,0 +1,95 @@
+name: Cultural Probe Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  check-contribution:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Check file structure
+      run: |
+        python -c "
+        import os
+        import sys
+        
+        required_files = [
+            'reflections/',
+            'diary/',
+            'examples/',
+        ]
+        
+        missing = [f for f in required_files if not os.path.exists(f)]
+        if missing:
+            print(f'Missing required directories: {missing}')
+            sys.exit(1)
+        "
+
+    - name: Run probe manager tests
+      run: |
+        python -m unittest discover -s tests
+
+    - name: Check for sensitive information
+      run: |
+        python -c "
+        import os
+        import re
+        import sys
+        
+        def check_file(filepath):
+            with open(filepath, 'r') as f:
+                content = f.read()
+                # Check for potential API keys
+                if re.search(r'[a-zA-Z0-9_-]{20,}', content):
+                    print(f'Possible API key in {filepath}')
+                    return False
+                # Check for email addresses
+                if re.search(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', content):
+                    print(f'Email address found in {filepath}')
+                    return False
+            return True
+        
+        for root, _, files in os.walk('.'):
+            for file in files:
+                if file.endswith(('.py', '.md', '.txt')):
+                    filepath = os.path.join(root, file)
+                    if not check_file(filepath):
+                        sys.exit(1)
+        "
+
+    - name: Validate probe responses
+      run: |
+        python -c "
+        import os
+        import sys
+        import yaml
+        
+        def validate_yaml(filepath):
+            try:
+                with open(filepath, 'r') as f:
+                    yaml.safe_load(f)
+                return True
+            except yaml.YAMLError:
+                print(f'Invalid YAML in {filepath}')
+                return False
+        
+        config_file = 'probe_config.yaml'
+        if os.path.exists(config_file):
+            if not validate_yaml(config_file):
+                sys.exit(1)
+        "
