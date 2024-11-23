@@ -4,25 +4,13 @@ Welcome to the heart of our cultural probe study! This directory contains carefu
 
 ## Available Tasks 📝
 
-Choose one that interests you:
+Choose tasks from the `examples` directory that interest you. Each task is designed to explore different aspects of software development:
 
-### 1. Code Review & Refactor
-- 📂 `examples/code_review_refactor.py`
-- Review existing code and improve its structure
-- Focus on readability and maintainability
-- Share your thought process as you work
+- Code review and refactoring
+- Feature implementation
+- Bug investigation and fixing
 
-### 2. Feature Implementation
-- 📂 `examples/feature_implementation.py`
-- Add new functionality to existing code
-- Balance technical debt with feature delivery
-- Document your design decisions
-
-### 3. Bug Investigation
-- 📂 `examples/bug_investigation.py`
-- Track down and fix subtle issues
-- Practice debugging strategies
-- Share your problem-solving approach
+See the `examples/README.md` for detailed task descriptions and guidelines.
 
 ## How to Participate 🤝
 
@@ -52,6 +40,6 @@ Choose one that interests you:
 
 - Check `FAQ.md` in the root directory
 - Review task-specific READMEs
-- Reach out through Discord or email
+- Reach out through email
 
 Ready to begin? Choose your task and dive in! 🏊‍♂️

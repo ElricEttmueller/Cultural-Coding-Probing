@@ -49,20 +49,12 @@ Some files are protected to maintain research integrity:
 - Templates
 - Submitted responses
 
-To view or modify protected files:
-```python
-with protection_manager.temporarily_unprotect(path):
-    # Make your changes
-```
+Please do not modify these files as they are essential for the research process.
 
 #### Submission Process
 1. Complete your responses
-2. Run the submission tool:
-   ```bash
-   cd 04_submission
-   python submit_probes.py
-   ```
-3. Review the generated PDF
+2. Follow the submission instructions in `04_submission/README.md`
+3. Review your submission package
 4. Send via email
 
 ### Step 5: Getting Help 💁‍♀️

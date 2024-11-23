@@ -45,13 +45,6 @@ This framework helps:
    - `.probe_responses/`: Your responses
    - `04_submission/`: Submission tools
 
-3. **Configuration**
-   Edit `probe_config.yaml` to customize:
-   - Email settings
-   - Security preferences
-   - Submission format
-   - File protection rules
-
 ## Your Privacy Rights
 
 - ✅ View all collected data
@@ -67,12 +60,6 @@ Some directories are protected to maintain research integrity:
 - Templates
 - Submitted responses
 
-To modify protected files:
-```python
-with protection_manager.temporarily_unprotect(path):
-    # Make your changes
-```
-
 ## Submission Guide
 
 1. **Prepare Responses**
@@ -81,23 +68,15 @@ with protection_manager.temporarily_unprotect(path):
    - Ensure all files are saved
 
 2. **Generate Submission**
-   ```bash
-   cd 04_submission
-   python submit_probes.py
-   ```
-
-3. **Review & Submit**
-   - Check the generated PDF
-   - Verify included files
+   - Follow instructions in `04_submission/README.md`
+   - Review your submission package
    - Send to: elric.ettmueller@hm.edu
 
 ## Technical Details
 
-- Python 3.8+ required
-- Uses ReportLab for PDF generation
-- SHA-256 checksums for verification
-- Configurable watermarking
-- QR code verification
+- Written in Python
+- Uses standard libraries for file handling
+- Includes integrity checks for submissions
 
 ## Need Help?
 
