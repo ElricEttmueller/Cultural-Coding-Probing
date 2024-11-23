@@ -114,6 +114,8 @@ This tool is part of a study on software development practices. Your participati
 
 ## Acknowledgments
 
+This was partly created with AI.
+
 Thank you for participating in our research! Your insights help advance our understanding of software development practices.
 
 ## License
